@@ -23,12 +23,17 @@ public class Departamento {
     private String nombre;
     private String codigo;
     private BigDecimal presupuesto;
-    private String localidad;
+    @ManyToOne
+    @JoinColumn(
+            name = "id_emp",
+            foreignKey = @ForeignKey(name = "FK_departamento_empleado_empleado")
+    )
+    private Empleado empleados;
 
     @OneToOne
     @JoinColumn(
             name = "id_jefe",
-            foreignKey = @ForeignKey(name = "FK_departamento_empledoJefe")
+            foreignKey = @ForeignKey(name = "FK_departamento_empledo-Jefe")
     )
     private Empleado jefe;
 }

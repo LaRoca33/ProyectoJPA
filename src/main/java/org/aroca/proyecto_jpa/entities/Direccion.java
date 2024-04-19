@@ -1,16 +1,23 @@
-package org.aroca.proyecto_jpa.Embedded;
+package org.aroca.proyecto_jpa.entities;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.UUID;
 
-@Embeddable
-@Data @NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Data
+@AllArgsConstructor @NoArgsConstructor
 public class Direccion {
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
     private String tipoV;
     private  String via;
     private int num;

@@ -1,4 +1,4 @@
 package org.aroca.proyecto_jpa.entities;
 
-public class InformacionEconomica {
+public class EmpleadoAlumnado {
 }

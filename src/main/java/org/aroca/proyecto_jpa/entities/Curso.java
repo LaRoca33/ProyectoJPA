@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -16,11 +15,15 @@ public class Curso {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID uuid;
     private String nombre;
-    private int duracion;
+    private int horas;
 
-    @OneToMany
+
+
+    @ManyToOne
     @JoinColumn(
-            foreignKey = @ForeignKey(name = "FK_curso_ediciones")
+            name = "id_edicionCurso",
+            foreignKey = @ForeignKey(name = "FK_curso_edicionCurso_idEdicionCurso")
     )
-     private Set<Empleado> empleadosCualificados;
+    private EdicionCurso edicionCurso;
+
 }
